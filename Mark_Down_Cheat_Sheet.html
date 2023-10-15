@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mark_Down_Cheat_Sheet.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="markdown-cheat-sheet-tutorials">Markdown cheat Sheet Tutorials</h1>
+<h1 id="table-of-contents">Table of Contents</h1>
+<p><a href="#1-headings">Heading </a><br>
+<a href="#2-face-of-the-text">Face of the text</a><br>
+<a href="#3-blockquote-block-of-code">Blockquote block of code</a><br>
+<a href="#4-line-break">line Break</a><br>
+<a href="#5bullet-pointslists">Bullet (Points \Lists)</a><br>
+<a href="#6-combined-two-things">Combined two things</a><br>
+<a href="#7-line-breaks-and-page-breaks">Line breaks and page breaks</a><br>
+<a href="#8-links-and-hyperlinks">Links and Hyperlinks</a><br>
+<a href="#9-image-and-figures-with-links">Image and Figures with Links</a><br>
+<a href="#10-use-code-or-code-block">Use code or code blocks</a><br>
+<a href="#11-adding-table">Adding Table</a>\</p>
+<h1 id="basic-markdown-syntax">Basic Markdown Syntax</h1>
+<h1 id="1-headings">1. Headings</h1>
+<h1 id="heading-1--heading-1">Heading 1 =&gt;<code># Heading 1</code></h1>
+<h2 id="heading-2--heading-2">Heading 2 =&gt;<code># Heading 2</code></h2>
+<h3 id="heading-3--heading-3">Heading 3 =&gt;<code># Heading 3</code></h3>
+<h4 id="heading-4-heading-4">Heading 4=&gt;<code># Heading 4</code></h4>
+<h5 id="heading-5-heading-5">Heading 5=&gt;<code># Heading 5</code></h5>
+<h6 id="heading-6-heading-6">Heading 6=&gt;<code># Heading 6</code></h6>
+<h1 id="2-face-of-the-text">2. Face of The Text</h1>
+<p><strong>Bold</strong> =&gt;<code>**Bold**</code></p>
+<p><em>Italic</em> =&gt;<code>*Italic*</code></p>
+<p><em><strong>Bold and Italic</strong></em> =&gt;<code>***Bold and Italic***</code></p>
+<p>Or We can also use this symbol for text face
+_(underscore)=&gt;</p>
+<p><strong>Bold</strong> =&gt;<code>__Bold__</code></p>
+<p><em>Italic</em> =&gt;<code>_Italic_</code></p>
+<p><em><strong>Bold and Italic</strong></em> =&gt;<code>___Bold and Italic___</code></p>
+<h1 id="3-blockquote-block-of-code">3. Blockquote (Block of Code)</h1>
+<p>=&gt;For Blockquote, we can use <code>&gt;</code></p>
+<blockquote>
+<p>Blockquote paragraphs must have right-arrow bracket (<code>&gt;</code>)`at the start of every single line.</p>
+<p>Use a blank line for multiple paragraphs.</p>
+</blockquote>
+<h1 id="4-line-break">4. line Break</h1>
+<p>=&gt; For line break, we can use <code>Enter</code> or <code>\</code></p>
+<p>This the first line of the paragraph
+This is the second line of the paragraph</p>
+<p>This the first line of the paragraph</p>
+<p>This is the second line of the paragraph</p>
+<p>This the first line of the paragraph<br>
+This is the second line of the paragraph</p>
+<h1 id="5bullet-pointslists">5.Bullet Points/Lists</h1>
+<h2 id="1-unordered-list">1. Unordered List</h2>
+<p>=&gt; For unordered lists, we can use <code>-</code>or<code>+</code>or <code>*</code> symbols</p>
+<ul>
+<li>Sunday</li>
+<li>Monday</li>
+<li>Tuesday</li>
+<li>Wednesday</li>
+<li>Thursday
+<ul>
+<li>subList-1</li>
+<li>subList-2</li>
+</ul>
+</li>
+<li>Friday</li>
+<li>Saturday</li>
+</ul>
+<ul>
+<li>Sunday</li>
+<li>Monday</li>
+<li>Tuesday</li>
+</ul>
+<ul>
+<li>Wednesday</li>
+<li>Thursday
+<ul>
+<li>subList-1</li>
+<li>subList-2</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-ordered-list-numbering-of-list">2. Ordered List (Numbering of List)</h2>
+<ol>
+<li>Sunday</li>
+<li>Monday</li>
+<li>Tuesday</li>
+<li>Wednesday</li>
+<li>Thursday</li>
+<li>Friday</li>
+<li>Saturday</li>
+</ol>
+<h1 id="6-combined-two-things">6. Combined Two Things</h1>
+<p>==&gt; Block of code and Heading</p>
+<blockquote>
+<h2 id="heading-2">Heading 2</h2>
+<p>This is first line of the blocks
+This is the second line of the blocks
+This is the third line of blocks</p>
+</blockquote>
+<h1 id="7-line-breaks-and-page-breaks">7. Line Breaks and Page breaks</h1>
+<p>This is Page 1</p>
+<hr>
+<p>This is page 2</p>
+<hr>
+<h2 id="this-is-third-page">This is third page</h2>
+<h1 id="8-links-and-hyperlinks">8. Links and Hyperlinks</h1>
+<p><a href="https://www.anjankumarkc.com.np/">https://www.anjankumarkc.com.np/</a></p>
+<hr>
+<p><a href="https://www.anjankumarkc.com.np/">Anjan</a></p>
+<hr>
+<p>Click <a href="https://www.anjankumarkc.com.np/">Here</a></p>
+<h1 id="9-image-and-figures-with-links">9. Image and Figures with links</h1>
+<p><a href="IMG_1343.JPG">Photo</a></p>
+<p><img src="IMG_1343.JPG" alt="Photo"></p>
+<p>==&gt;Online Picture
+<img src="https://3.bp.blogspot.com/-aeoBupBm8Gc/Wk5U_eQTsSI/AAAAAAAABYQ/Xa5OPSiWkgISKOCv_G-5dmIiTnAkunSqACLcBGAs/s1600/MYXJ_20171015140534_fast.jpg" alt="Anjan"></p>
+<h1 id="10-use-code-or-code-block">10. Use Code or Code Block</h1>
+<p>==&gt; For code block, we can use <code>```pip install numpy ```</code></p>
+<blockquote>
+<p>Add Two Number using JavaScript
+This code with show color according to JavaScript Language</p>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> num1=<span class="hljs-number">10</span>;
+<span class="hljs-keyword">let</span> num2-=<span class="hljs-number">20</span>;
+<span class="hljs-keyword">let</span> sum=num1+num2
+<span class="hljs-built_in">console</span>.log(sum)
+</div></code></pre>
+<blockquote>
+<p>This code with show color according to HTML</p>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Welcome to my page<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>This is my personal web pages<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<blockquote>
+<p>Add two number using c programming
+this code with shows color according to <code>C</code> Programming</p>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-keyword">int</span> a=<span class="hljs-number">5</span>;
+<span class="hljs-keyword">int</span> b=<span class="hljs-number">10</span>;
+<span class="hljs-keyword">int</span> sum;
+sum=a+b;
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>,sum)
+</div></code></pre>
+<p>Inline Code</p>
+<blockquote>
+<p>Install Python using: <code>pip install python</code></p>
+</blockquote>
+<h1 id="11-adding-table">11. Adding Table</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:center">Address</th>
+<th>Age</th>
+<th style="text-align:right">Phone-Number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Anjan</td>
+<td style="text-align:center">Rukum</td>
+<td>26</td>
+<td style="text-align:right">9866904450</td>
+</tr>
+<tr>
+<td style="text-align:left">Anjan</td>
+<td style="text-align:center">Rukum</td>
+<td>26</td>
+<td style="text-align:right">9866904450</td>
+</tr>
+<tr>
+<td style="text-align:left">Anjan</td>
+<td style="text-align:center">Rukum</td>
+<td>26</td>
+<td style="text-align:right">9866904450</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<h1 id="note">Note:</h1>
+</blockquote>
+<p>|:-----|=&gt; Left Align</p>
+<p>|:-------:|=&gt;Center Align</p>
+<p>|-----------:|=&gt; Right Align</p>
+
+</body>
+</html>
